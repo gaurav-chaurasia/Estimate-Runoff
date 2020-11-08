@@ -35,3 +35,24 @@
     width: 60%;
     margin: 20px auto;
 }
+
+.remove_field {
+    position: relative;
+}
+
+.rain {
+    position: absolute;
+    top: -47px;
+    right: -691px;
+    height: 25px;
+}
+
+.svg {
+    fill: tomato;
+}
+.cn {
+    position: absolute;
+    top: 7px;
+    right: -10px;
+    height: 25px;
+}

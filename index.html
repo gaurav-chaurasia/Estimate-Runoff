@@ -16,39 +16,8 @@
         rel="stylesheet"
     >
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-			  ></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		
-	
-	<script>
-	$(document).ready(function() {
-    var max_fields      = 10; //maximum input boxes allowed
-    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
-    var add_button      = $(".add_field_button"); //Add button ID
-   
-    var x = 1; //initlal text box count
-	
-	
-   $(add_button).click(function(e){ //on add input button click
-        e.preventDefault();
-        if(x < max_fields){ //max input box allowed
-	
-		     //text box increment
-            $(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
-            x++; 
-	  }
-    });
-   
-    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-       
-		e.preventDefault(); 
-		$(this).parent('div').remove(); 
-		x--;
-    })
-});
-	
-	</script>
-
 </head>
 <body>
    <nav class="nav">
@@ -60,23 +29,64 @@
             </div>
         </div>
     </nav>
-    <div class="input_fields_wrap">
-        <button class="add_field_button">Add More Fields</button>
-        <div><input type="text" name="mytext[]"></div>
-        
-         </div>
+
 
 
     <div class="container">
         <form class="form">
-			<div class="form-group">
-				<label for="username">Daily Rainfall Data (mm)</label>
-				<input class="form-control" type="number" step=0.001 name="username">
-			</div>
-			<div class="form-group">
-				<button class="btn btn-primary">Calculate Runoff</button>
-			</div>
+            <div class="form-group">
+                <label for="AMC">AMC Condition</label>
+                <select class="form-control AMC" name="AMC" id="">
+                    <option value="1">AMC-I</option>
+                    <option value="2">AMC-II</option>
+                    <option value="3">AMC-III</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="lambda">Rajendra</label>
+                <select class="form-control lambda" name="lambda" id="">
+                    <option value="0.1">0.1</option>
+                    <option value="0.2">0.2</option>
+                    <option value="0.3">0.3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="CNType">CN Type</label>
+                <select class="form-control CNType" name="CNType" id="">
+                    <option value="1">I</option>
+                    <option value="2">II</option>
+                    <option value="3">III</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="username">Daily Rainfall Data (mm)</label>
+                <div class="input_rain_wrap">
+                    <button class="add_rain_button btn btn-sm btn-primary my-3">
+                        Add Rain Field
+                    </button>
+                    <div>
+                        <input class="form-control rain-data mb-3" placeholder="day-1" type="number" name="rain[]">
+                    </div>    
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="CN">Curve Number</label>
+                <div class="input_cn_wrap">
+                    <button class="add_cn_button btn btn-sm btn-primary my-3">Add CN Field</button>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="contribution">Percentage</label>
+                            <input class="form-control cn-p mb-3" placeholder="% - 1" type="number" name="contribution[]">
+                        </div>
+                        <div class="col-6">
+                            <label for="cn">Curve Number</label>
+                            <input class="form-control cn-v mb-3" placeholder="CN-1" type="number" name="cn[]">
+                        </div>
+                    </div>    
+                </div>
+            </div>
 		</form>
+        <button class="btn btn-dark calculate">Calculate Runoff</button>
     </div>
 
     <!-- jQuery and JS bundle w/ Popper.js -->
