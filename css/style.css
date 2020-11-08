@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.center {
+    text-align: center !important;
+}
+.center-xy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav {
+    background-color: #252b3b;
+    text-align: center;
+    color: #ffffff;
+}
+
+.logo {
+    width: 200px;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 30px;
+}
+.logo:hover {
+    background-color: #30384d;
+    transition: 0.5s;
+}
