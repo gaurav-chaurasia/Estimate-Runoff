@@ -30,3 +30,8 @@
     background-color: #30384d;
     transition: 0.5s;
 }
+
+.form {
+    width: 60%;
+    margin: 20px auto;
+}
