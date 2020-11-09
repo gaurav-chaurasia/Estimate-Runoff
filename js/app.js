@@ -70,11 +70,12 @@ $('.calculate').on('click', (e) => {
     for (let i =0; i < document.querySelectorAll('.cn-p').length; i++) {
         a += parseInt(document.querySelectorAll('.cn-p')[i].value, 10);
         b = parseInt(document.querySelectorAll('.cn-p')[i].value, 10);
-        c = parseInt(document.querySelectorAll('.cn-v')[i].value, 10);
+        c = parseFloat(document.querySelectorAll('.cn-v')[i].value, 10);
         avgCN += b * c;
         // console.log(document.querySelectorAll('.cn-p')[i].value);
     }
-    avgCN = avgCN / a;
+    console.log(avgCN);
+    avgCN =parseFloat((avgCN / a),10);
     // console.log(`a = ${a}`);
     // console.log(`avgCN = ${avgCN}`);
 
@@ -84,18 +85,19 @@ $('.calculate').on('click', (e) => {
     var CN1, CN2, CN3;
     var retain;
     var runoff = new Array();
-    if (AMC === 1) {
+    if (AMC == 1) {
         CN1 = (avgCN / (2.281 - (0.01281 * avgCN)));
         retain = 254 * ((100/CN1) - 1);
-    } else if (AMC === 2) {
+        console.log(`CN1: ${CN1}`);
+    } else if (AMC == 2) {
         CN2 = avgCN;
         retain = 254 * ((100/CN2) - 1);
         console.log(`CN2: ${CN2}`);
-    } else {
-        CN3 = (avgCN / (0.427 - (0.00573 * avgCN)));
+    } else if(AMC == 3) {
+        CN3 = (avgCN / (0.427 + (0.00573 * avgCN)));
         retain = 254 * ((100/CN3) - 1);
-        console.log(`CN3: ${parseInt(CN3, 10)}`);
-
+        console.log(`CN3: ${CN3}`);
+        
     }
     for (let i = 0; i < document.querySelectorAll('.rain-data').length; i++) {
         let rainfall = document.querySelectorAll('.rain-data')[i].value;
