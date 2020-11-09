@@ -17,18 +17,27 @@
 .nav {
     background-color: #252b3b;
     text-align: center;
-    color: #ffffff;
+    color: #414c69;
 }
 
 .logo {
     width: 200px;
-    margin: 10px auto;
-    padding: 10px;
+    margin: 1px auto;
+    padding: 8px;
     border-radius: 30px;
+    color: #5d6169;
+    text-shadow: none;
 }
 .logo:hover {
     background-color: #30384d;
     transition: 0.5s;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+.navi {
+    position: sticky;
+    top: 0px;
 }
 
 .form {

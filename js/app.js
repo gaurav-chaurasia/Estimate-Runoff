@@ -51,12 +51,16 @@ $(document).ready(function() {
     })
 });
 
+$(".noob li.nav-item a.nav-link").click(function() {
+  $(".noob li.nav-item a.nav-link").removeClass('active');
+});
+
 // document.querySelectorAll('.rain-data');
 // document.querySelectorAll('.cn-p');
 // document.querySelectorAll('.cn-v');
 
-$('.calculate').on('click', () => {
-
+$('.calculate').on('click', (e) => {
+    e.preventDefault();
     // document.querySelectorAll('.rain-data');
     // document.querySelectorAll('.cn-p');
     // document.querySelectorAll('.cn-v');
