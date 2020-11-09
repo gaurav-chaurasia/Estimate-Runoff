@@ -38,6 +38,7 @@
 .navi {
     position: sticky;
     top: 0px;
+    z-index: 999;
 }
 
 .form {
@@ -49,21 +50,46 @@
     position: relative;
 }
 
-.rain {
-    position: absolute;
-    top: -47px;
-    right: -691px;
-    height: 25px;
+.seperator {
+    height: 50px;
 }
 
-.svg {
-    fill: tomato;
+.rain {
+    position: absolute;
+    font-size: 32px;
+    top: -58px;
+    /* right: -691px; */
+    left: 671px;
 }
+
 .cn {
     position: absolute;
-    top: 7px;
-    right: -10px;
-    height: 25px;
+    font-size: 32px;
+    top: -5px;
+    /* right: -10px; */
+    left: -10px;
+    height: 38px;
+}
+.form-group {
+    position: relative;
+}
+button {
+    color: #555;
+    background: none;
+    border: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.add_cn_button, .add_rain_button {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    font-size: 32px;
+    color: #5cb85c;
+    font-weight: bold;
 }
 
 .center-footer {
@@ -71,4 +97,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+#reference div {
+    display: flex;
+    flex-direction: column;
 }

@@ -11,7 +11,7 @@ $(document).ready(function() {
         if(x < max_rain){ //max input box allowed
 	
 		     //text box increment
-            $(wrapper).append('<div><input class="form-control rain-data mb-3" placeholder="day-'+ (x+1) +'" type="number" name="rain[]"><a href="#" class="remove_field"><img class="rain" src="./assets/cross.svg" alt=""></a></div>'); //add input box
+            $(wrapper).append('<div><input class="form-control rain-data mb-3" placeholder="day-'+ (x+1) +'" type="number" name="rain[]"><a href="#" class="remove_field"><i class="rain ion-ios-close-outline"></i></a></div>'); //add input box
             x++; 
 	  }
     });
@@ -38,7 +38,7 @@ $(document).ready(function() {
         if(x < max_cn){ //max input box allowed
 	
 		     //text box increment
-            $(wrapper).append('<div class="row"><div class="col-6"><input class="form-control cn-p mb-3" placeholder="% - '+ (x+1) +'"type="number" name="contribution[]"></div><div class="col-6"><input class="form-control cn-v mb-3" placeholder="CN-'+ (x+1) +'" type="number" name="cn[]"></div><a href="#" class="remove_field"><img class="cn" src="./assets/cross.svg" alt=""></a></div>'); //add input box
+            $(wrapper).append('<div class="row"><div class="col-6"><input class="form-control cn-p mb-3" placeholder="% - '+ (x+1) +'"type="number" name="contribution[]"></div><div class="col-6"><input class="form-control cn-v mb-3" placeholder="CN-'+ (x+1) +'" type="number" name="cn[]"></div><a href="#" class="remove_field"><i class="cn ion-ios-close-outline"></i></a></div>'); //add input box
             x++; 
 	  }
     });
