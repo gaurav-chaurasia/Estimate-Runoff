@@ -74,40 +74,64 @@ $('.calculate').on('click', (e) => {
         avgCN += b * c;
         // console.log(document.querySelectorAll('.cn-p')[i].value);
     }
-    console.log(avgCN);
     avgCN =parseFloat((avgCN / a),10);
     // console.log(`a = ${a}`);
     // console.log(`avgCN = ${avgCN}`);
 
     const AMC = document.querySelector('.AMC').value;
-    const lambda = document.querySelector('.lambda').value;
+    const lambda = parseFloat(document.querySelector('.lambda').value, 10);
     const CNType = document.querySelector('.CNType').value;
+    const area_unit = document.querySelector('.area-unit').value;
+    const area_data = parseFloat((document.querySelector('.area-data').value), 10);
     var CN1, CN2, CN3;
-    var retain;
+    var retain = 0;
     var runoff = new Array();
+    var total_runoff = 0;
+    var runoff_volume = 0;
     if (AMC == 1) {
-        CN1 = (avgCN / (2.281 - (0.01281 * avgCN)));
-        retain = 254 * ((100/CN1) - 1);
-        console.log(`CN1: ${CN1}`);
+        if (CNType == 1) {
+            CN1 = avgCN;
+        } else {
+            CN1 = (avgCN / (2.281 - (0.01281 * avgCN)));
+        }
+        retain = parseFloat((254 * ((100/CN1) - 1)), 10);
     } else if (AMC == 2) {
         CN2 = avgCN;
-        retain = 254 * ((100/CN2) - 1);
-        console.log(`CN2: ${CN2}`);
+        retain = parseFloat((254 * ((100/CN2) - 1)), 10);
+        // retain = 254 * ((100/CN2) - 1);
+        // console.log(`CN2: ${CN2}`);
     } else if(AMC == 3) {
-        CN3 = (avgCN / (0.427 + (0.00573 * avgCN)));
-        retain = 254 * ((100/CN3) - 1);
-        console.log(`CN3: ${CN3}`);
-        
+        if (CNType == 3) {
+            CN3 = avgCN;
+        } else {
+            CN3 = (avgCN / (0.427 + (0.00573 * avgCN)));
+            // retain = 254 * ((100/CN3) - 1);
+        }
+        retain = parseFloat((254 * ((100/CN3) - 1)), 10);
     }
+    console.log(retain);
     for (let i = 0; i < document.querySelectorAll('.rain-data').length; i++) {
-        let rainfall = document.querySelectorAll('.rain-data')[i].value;
+        let rainfall = parseFloat((document.querySelectorAll('.rain-data')[i].value), 10);
         let temp_runoff = 0;
         if (rainfall <= lambda * retain) {
             temp_runoff = 0;
         } else {
-            temp_runoff = ((rainfall - lambda * retain)**2)/(rainfall + (1 - lambda) * retain);
+            temp_runoff = ((rainfall - (lambda * retain))**2)/(rainfall + (1 - lambda) * retain);
         }
         runoff.push(temp_runoff);
+        // console.log(temp_runoff);
     }
-    console.log(runoff);
+    console.log(`a-d: ${area_data}`);
+    console.log(`a-u: ${area_unit}`);
+
+    for (let i = 0; i < runoff.length; i++) {
+        total_runoff = total_runoff + runoff[i];
+    }
+    console.log(`total_runoff: ${total_runoff}`);
+    if (area_unit == 1) {
+        runoff_volume = parseFloat((area_data * total_runoff * 10), 10);
+    } else {
+        runoff_volume = parseFloat(((area_data * total_runoff) / 1000), 10);
+    }
+    console.log(`runoff_volume: ${runoff_volume}`);
 });

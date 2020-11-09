@@ -65,3 +65,10 @@
     right: -10px;
     height: 25px;
 }
+
+.center-footer {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
