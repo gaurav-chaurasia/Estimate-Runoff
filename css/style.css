@@ -48,6 +48,10 @@
 
 .remove_field {
     position: relative;
+    color: tomato;
+}
+.remove_field:hover {
+    color: rgb(173, 50, 28);
 }
 
 .seperator {
@@ -61,7 +65,22 @@
     /* right: -691px; */
     left: 671px;
 }
-
+.card {
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.card:hover {
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.08);
+}
+svg {
+  height: 2rem;
+  width: 2rem;
+  fill: #383838;
+  opacity: 1;
+}
+svg:hover {
+    fill: #55acee;
+}
 .cn {
     position: absolute;
     font-size: 32px;
