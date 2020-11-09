@@ -12,8 +12,13 @@
         crossorigin="anonymous"
     >
     <link 
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" 
-        rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" 
+    rel="stylesheet"
+    >
+    <link 
+        href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" 
+        rel="stylesheet" 
+        type="text/css"
     >
     <link rel="stylesheet" href="./css/style.css">
 		
@@ -70,7 +75,7 @@
                 <div class="form-group">
                     <label for="AMC">Area Unit</label>
                     <select class="form-control area-unit">
-                        <option value="1">Hact</option>
+                        <option value="1">Hect</option>
                         <option value="2">Meter</option>
                     </select>
                 </div>
@@ -102,24 +107,30 @@
                         <option value="3">III</option>
                     </select>
                 </div>
-                <div class="my-3"><hr></div>
+                <div class="seperator">
+                </div>
+                <hr>
                 <div class="form-group">
-                    <label for="username">Daily Rainfall Data (mm)</label>
                     <div class="input_rain_wrap">
-                        <button class="add_rain_button btn btn-sm btn-primary my-3">
-                            Add Rain Field
+                        <label for="username">Daily Rainfall Data (mm)</label>
+                        <button class="add_rain_button my-3">
+                            <i class="ion-ios-plus-outline"></i>
                         </button>
                         <div>
-                            <input class="form-control rain-data mb-3" placeholder="day-1" type="number" name="rain[]">
+                            <input class="form-control rain-data mb-3" min='0' placeholder="day-1" type="number" name="rain[]">
                         </div>    
                     </div>
                 </div>
             
-                <div class="my-3"><hr></div>
+                <div class="seperator">
+                </div>
+                <hr>
                 <div class="form-group">
-                    <label for="CN">Curve Number Data</label>
                     <div class="input_cn_wrap">
-                        <button class="add_cn_button btn btn-sm btn-primary my-3">Add CN Field</button>
+                        <label for="CN">Curve Number Data</label>
+                        <button class="add_cn_button my-3">
+                            <i class="ion-ios-plus-outline"></i>
+                        </button>
                         <div class="row">
                             <div class="col-6">
                                 <label for="contribution">Percentage</label>
@@ -135,23 +146,53 @@
                 <button class="btn btn-dark calculate">Calculate Runoff</button>
             </form>
         </div>
+
         <div class="tab-pane fade" id="reference" role="tabpanel" aria-labelledby="nav-profile-tab">
-            <div class="jumbotron">
-                <h1 class="display-4">Hello, world!</h1>
-                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                <hr class="my-4">
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                <p class="lead">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                </p>
+            <div class="container my-3">
+                <div class="center-xy my-3">
+                    <div class="my-3">
+                        Antecedent Moisture Condition(AMC) for Determining value of Curve Number
+                    </div>
+                    <img src="./assets/AMC.png" class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
+            <div class="container my-3">
+                <div class="center-xy my-3">
+                    <div class="my-3">
+                        Curve Number [CN2] Values for Sugarcane
+                    </div>
+                    <img src="./assets/a.png" class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
+            <div class="container my-3">
+                <div class="center-xy my-3">
+                    <div class="my-3">
+                        Curve Number [CN2] Values for Sugarcane and Urban Land Use
+                    </div>
+                    <img src="./assets/b.png" class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
+            <div class="container my-3">
+                <div class="center-xy my-3">
+                    <div class="my-3">
+                        Runoff Curve Number [CN2] for Hydrologic Soil Cover Complexes [Under AMC-II Conditions]
+                    </div>
+                    <img src="./assets/c.png" class="img-fluid" alt="Responsive image">
+                </div>
             </div>
         </div>
+
         <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="nav-profile-tab">
-            <div class="alert alert-success" role="alert">
-                <h4 class="alert-heading">Well done!</h4>
-                <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-                <hr>
-                <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+            <div class="alert alert-info my-3" role="alert">
+                <div class="center-xy my-3">
+                    <!-- <h4 class="alert-heading">Estimate Runoff</h4> -->
+                    <p class="center">
+                        This web application is build to Estimate daily and Total Runoff Depth and Volume
+                        Using SCS-CN method which was developed to calculate runoff generated in storms.
+                        In this application user can refer reference tab and depending on data given in 
+                        table can provide Curve Number Value and other parameter to calculate Runoff.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
