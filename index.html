@@ -16,77 +16,130 @@
         rel="stylesheet"
     >
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		
 </head>
 <body>
-   <nav class="nav">
-       <div class="container">
-            <div class="center">
-                <div class="logo">
-                    Estimate Runoff
-                </div>
-            </div>
+    <nav class="navbar nav">
+        <div class="container">
+            <ul class=navbar-nav>
+                <li class="nav-item">
+                    <a class="nav-link logo"href="/" >Estimate Runoff</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link logo" href="https://www.nitk.ac.in/">NITK</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0;">
+        <div class="container">
+            <h1 class="display-4">Estimate Runoff Using SCS-CN</h1>
+            <p class="lead">The SCS curve number method is a simiple, widely used and efficient method for determining the approxient amount of runoff from a rainfall even in a particular area. ... The curve number is based on the area's hydrologic soil group, land use , treatment and hydrologic condition.</p>
+        </div>
+    </div>
+    <nav class="navbar navi navbar-expand-sm bg-light navbar-light">
+        <div class="container">
+            <ul class="navbar-nav"></ul>
+            <ul class="navbar-nav noob">
+                <li class="nav-item">
+                    <a class="nav-link mx-3 active" data-toggle="tab" href="#form" >home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-3" data-toggle="tab" href="#reference" >reference</a>                    
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-3" data-toggle="tab" href="#instructor" >Instructor</a>                    
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-3" data-toggle="tab" href="#contributor" >contributor</a>                    
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-3" data-toggle="tab" href="#about" >about</a>                    
+                </li>
+            </ul>
+            <ul class="navbar-nav"></ul>
         </div>
     </nav>
 
 
-
-    <div class="container">
-        <form class="form">
-            <div class="form-group">
-                <label for="AMC">AMC Condition</label>
-                <select class="form-control AMC" name="AMC" id="">
-                    <option value="1">AMC-I</option>
-                    <option value="2">AMC-II</option>
-                    <option value="3">AMC-III</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="lambda">Rajendra</label>
-                <select class="form-control lambda" name="lambda" id="">
-                    <option value="0.1">0.1</option>
-                    <option value="0.2">0.2</option>
-                    <option value="0.3">0.3</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="CNType">CN Type</label>
-                <select class="form-control CNType" name="CNType" id="">
-                    <option value="1">I</option>
-                    <option value="2">II</option>
-                    <option value="3">III</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="username">Daily Rainfall Data (mm)</label>
-                <div class="input_rain_wrap">
-                    <button class="add_rain_button btn btn-sm btn-primary my-3">
-                        Add Rain Field
-                    </button>
-                    <div>
-                        <input class="form-control rain-data mb-3" placeholder="day-1" type="number" name="rain[]">
-                    </div>    
+    <div class="container tab-content">
+        <div class="tab-pane fade show active" id="form" role="tabpanel" aria-labelledby="nav-home-tab">
+            <form class="form">
+                <div class="form-group">
+                    <label for="AMC">AMC Condition</label>
+                    <select class="form-control AMC" name="AMC">
+                        <option value="1">AMC-I</option>
+                        <option value="2">AMC-II</option>
+                        <option value="3">AMC-III</option>
+                    </select>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="CN">Curve Number</label>
-                <div class="input_cn_wrap">
-                    <button class="add_cn_button btn btn-sm btn-primary my-3">Add CN Field</button>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="contribution">Percentage</label>
-                            <input class="form-control cn-p mb-3" placeholder="% - 1" type="number" name="contribution[]">
-                        </div>
-                        <div class="col-6">
-                            <label for="cn">Curve Number</label>
-                            <input class="form-control cn-v mb-3" placeholder="CN-1" type="number" name="cn[]">
-                        </div>
-                    </div>    
+                <div class="form-group">
+                    <label for="lambda">Rajendra</label>
+                    <select class="form-control lambda" name="lambda" id="">
+                        <option value="0.1">0.1</option>
+                        <option value="0.2">0.2</option>
+                        <option value="0.3">0.3</option>
+                    </select>
                 </div>
+                <div class="form-group">
+                    <label for="CNType">CN Type</label>
+                    <select class="form-control CNType" name="CNType" id="">
+                        <option value="1">I</option>
+                        <option value="2">II</option>
+                        <option value="3">III</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="username">Daily Rainfall Data (mm)</label>
+                    <div class="input_rain_wrap">
+                        <button class="add_rain_button btn btn-sm btn-primary my-3">
+                            Add Rain Field
+                        </button>
+                        <div>
+                            <input class="form-control rain-data mb-3" placeholder="day-1" type="number" name="rain[]">
+                        </div>    
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="CN">Curve Number</label>
+                    <div class="input_cn_wrap">
+                        <button class="add_cn_button btn btn-sm btn-primary my-3">Add CN Field</button>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="contribution">Percentage</label>
+                                <input class="form-control cn-p mb-3" placeholder="% - 1" type="number" name="contribution[]">
+                            </div>
+                            <div class="col-6">
+                                <label for="cn">Curve Number</label>
+                                <input class="form-control cn-v mb-3" placeholder="CN-1" type="number" name="cn[]">
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <button class="btn btn-dark calculate">Calculate Runoff</button>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="reference" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="jumbotron">
+                <h1 class="display-4">Hello, world!</h1>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <hr class="my-4">
+                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                </p>
             </div>
-		</form>
-        <button class="btn btn-dark calculate">Calculate Runoff</button>
+        </div>
+        <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Well done!</h4>
+                <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                <hr>
+                <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+            </div>
+        </div>
     </div>
 
     <!-- jQuery and JS bundle w/ Popper.js -->
