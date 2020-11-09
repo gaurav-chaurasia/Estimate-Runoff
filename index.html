@@ -1,314 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Estimate Runoff</title>
     <!-- CSS -->
-    <link 
-        rel="stylesheet" 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" 
-        crossorigin="anonymous"
-    >
-    <link 
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" 
-    rel="stylesheet"
-    >
-    <link 
-        href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" 
-        rel="stylesheet" 
-        type="text/css"
-    >
-    <link rel="stylesheet" href="./css/style.css">
-		
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
     <nav class="navbar nav">
-        <div class="container">
-            <ul class=navbar-nav>
-                <li class="nav-item">
-                    <a class="nav-link logo"href="/" >Estimate Runoff</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link logo" href="https://www.nitk.ac.in/">NITK</a>
-                </li>
-            </ul>
-        </div>
+      <div class="container">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link logo" href="/">Estimate Runoff</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              class="nav-link logo"
+              target="_blank"
+              href="https://www.nitk.ac.in/"
+              >NITK</a
+            >
+          </li>
+        </ul>
+      </div>
     </nav>
-    <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0;">
-        <div class="container">
-            <h1 class="display-4">Estimate Runoff Using SCS-CN</h1>
-            <p class="lead">The SCS curve number method is a simiple, widely used and efficient method for determining the approxient amount of runoff from a rainfall even in a particular area. ... The curve number is based on the area's hydrologic soil group, land use , treatment and hydrologic condition.</p>
-        </div>
+    <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0">
+      <div class="container">
+        <h1 class="display-4">Estimate Runoff Using SCS-CN</h1>
+        <p class="lead">
+          The SCS curve number method is a simiple, widely used and efficient
+          method for determining the approxient amount of runoff from a rainfall
+          even in a particular area. ... The curve number is based on the area's
+          hydrologic soil group, land use , treatment and hydrologic condition.
+        </p>
+      </div>
     </div>
     <nav class="navbar navi navbar-expand-sm bg-light navbar-light">
-        <div class="container">
-            <ul class="navbar-nav"></ul>
-            <ul class="navbar-nav noob">
-                <li class="nav-item">
-                    <a class="nav-link mx-3 active" data-toggle="tab" href="#form" >home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-3" data-toggle="tab" href="#reference" >reference</a>                    
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-3" data-toggle="tab" href="#guied" >Guide</a>                    
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-3" data-toggle="tab" href="#contributor" >contributor</a>                    
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-3" data-toggle="tab" href="#about" >about</a>                    
-                </li>
-            </ul>
-            <ul class="navbar-nav"></ul>
-        </div>
+      <div class="container">
+        <ul class="navbar-nav"></ul>
+        <ul class="navbar-nav noob">
+          <li class="nav-item">
+            <a class="nav-link mx-3 active" data-toggle="tab" href="#form"
+              >home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" data-toggle="tab" href="#reference"
+              >reference</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" data-toggle="tab" href="#guied">Guide</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" data-toggle="tab" href="#contributor"
+              >contributor</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" data-toggle="tab" href="#about">about</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav"></ul>
+      </div>
     </nav>
 
-
     <div class="container tab-content">
-        <div class="tab-pane fade show active" id="form" role="tabpanel" aria-labelledby="nav-home-tab">
-            <form class="form">
-                <div class="form-group">
-                    <label for="AMC">Area Unit</label>
-                    <select class="form-control area-unit">
-                        <option value="1">Hect</option>
-                        <option value="2">Meter</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="area-data">Area Data</label>
-                    <input class="form-control area-data mb-3" placeholder="Area" type="number">
-                </div>
-                <div class="form-group">
-                    <label for="AMC">AMC Condition</label>
-                    <select class="form-control AMC" name="AMC">
-                        <option value="1">AMC-I</option>
-                        <option value="2">AMC-II</option>
-                        <option value="3">AMC-III</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="lambda">Lambda (λ)</label>
-                    <select class="form-control lambda" name="lambda" id="">
-                        <option value="0.1">0.1</option>
-                        <option value="0.2">0.2</option>
-                        <option value="0.3">0.3</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="CNType">CN Type</label>
-                    <select class="form-control CNType" name="CNType" id="">
-                        <option value="1">I</option>
-                        <option value="2">II</option>
-                        <option value="3">III</option>
-                    </select>
-                </div>
-                <div class="seperator">
-                </div>
-                <hr>
-                <div class="form-group">
-                    <div class="input_rain_wrap">
-                        <label for="username">Daily Rainfall Data (mm)</label>
-                        <button class="add_rain_button my-3">
-                            <i class="ion-ios-plus-outline"></i>
-                        </button>
-                        <div>
-                            <input class="form-control rain-data mb-3" min='0' placeholder="day-1" type="number" name="rain[]">
-                        </div>    
-                    </div>
-                </div>
-            
-                <div class="seperator">
-                </div>
-                <hr>
-                <div class="form-group">
-                    <div class="input_cn_wrap">
-                        <label for="CN">Curve Number Data</label>
-                        <button class="add_cn_button my-3">
-                            <i class="ion-ios-plus-outline"></i>
-                        </button>
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="contribution">Percentage</label>
-                                <input class="form-control cn-p mb-3" placeholder="% - 1" type="number" name="contribution[]">
-                            </div>
-                            <div class="col-6">
-                                <label for="cn">Curve Number</label>
-                                <input class="form-control cn-v mb-3" placeholder="CN-1" type="number" name="cn[]">
-                            </div>
-                        </div>    
-                    </div>
-                </div>
-                <button class="btn btn-dark calculate">Calculate Runoff</button>
-            </form>
-        </div>
+      <div
+        class="tab-pane fade show active"
+        id="form"
+        role="tabpanel"
+        aria-labelledby="nav-home-tab"
+      >
+        <form class="form">
+          <div class="form-group">
+            <label for="AMC">Area Unit</label>
+            <select class="form-control area-unit">
+              <option value="1">Hect</option>
+              <option value="2">Meter</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="area-data">Area Data</label>
+            <input
+              class="form-control area-data mb-3"
+              placeholder="Area"
+              type="number"
+            />
+          </div>
+          <div class="form-group">
+            <label for="AMC">AMC Condition</label>
+            <select class="form-control AMC" name="AMC">
+              <option value="1">AMC-I</option>
+              <option value="2">AMC-II</option>
+              <option value="3">AMC-III</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="lambda">Lambda (λ)</label>
+            <select class="form-control lambda" name="lambda" id="">
+              <option value="0.1">0.1</option>
+              <option value="0.2">0.2</option>
+              <option value="0.3">0.3</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="CNType">CN Type</label>
+            <select class="form-control CNType" name="CNType" id="">
+              <option value="1">I</option>
+              <option value="2">II</option>
+              <option value="3">III</option>
+            </select>
+          </div>
+          <div class="seperator"></div>
+          <hr />
+          <div class="form-group">
+            <div class="input_rain_wrap">
+              <label for="username">Daily Rainfall Data (mm)</label>
+              <button class="add_rain_button my-3">
+                <i class="ion-ios-plus-outline"></i>
+              </button>
+              <div>
+                <input
+                  class="form-control rain-data mb-3"
+                  min="0"
+                  placeholder="day-1"
+                  type="number"
+                  name="rain[]"
+                />
+              </div>
+            </div>
+          </div>
 
-        <div class="tab-pane fade" id="reference" role="tabpanel" aria-labelledby="nav-profile-tab">
-            <div class="container my-3">
-                <div class="center-xy my-3">
-                    <div class="my-3">
-                        Antecedent Moisture Condition(AMC) for Determining value of Curve Number
-                    </div>
-                    <img src="./assets/AMC.png" class="img-fluid" alt="Responsive image">
+          <div class="seperator"></div>
+          <hr />
+          <div class="form-group">
+            <div class="input_cn_wrap">
+              <label for="CN">Curve Number Data</label>
+              <button class="add_cn_button my-3">
+                <i class="ion-ios-plus-outline"></i>
+              </button>
+              <div class="row">
+                <div class="col-6">
+                  <label for="contribution">Percentage</label>
+                  <input
+                    class="form-control cn-p mb-3"
+                    placeholder="% - 1"
+                    type="number"
+                    name="contribution[]"
+                  />
                 </div>
-            </div>
-            <div class="container my-3">
-                <div class="center-xy my-3">
-                    <div class="my-3">
-                        Curve Number [CN2] Values for Sugarcane
-                    </div>
-                    <img src="./assets/a.png" class="img-fluid" alt="Responsive image">
+                <div class="col-6">
+                  <label for="cn">Curve Number</label>
+                  <input
+                    class="form-control cn-v mb-3"
+                    placeholder="CN-1"
+                    type="number"
+                    name="cn[]"
+                  />
                 </div>
+              </div>
             </div>
-            <div class="container my-3">
-                <div class="center-xy my-3">
-                    <div class="my-3">
-                        Curve Number [CN2] Values for Sugarcane and Urban Land Use
-                    </div>
-                    <img src="./assets/b.png" class="img-fluid" alt="Responsive image">
-                </div>
-            </div>
-            <div class="container my-3">
-                <div class="center-xy my-3">
-                    <div class="my-3">
-                        Runoff Curve Number [CN2] for Hydrologic Soil Cover Complexes [Under AMC-II Conditions]
-                    </div>
-                    <img src="./assets/c.png" class="img-fluid" alt="Responsive image">
-                </div>
-            </div>
-        </div>
+          </div>
+          <button class="btn btn-dark calculate">Calculate Runoff</button>
+        </form>
+      </div>
 
-        <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="nav-profile-tab">
-            <div class="display-3 center my-3">About</div>
-            <div class="alert alert-info my-3" role="alert">
-                <div class="center-xy my-3">
-                    <!-- <h4 class="alert-heading">Estimate Runoff</h4> -->
-                    <p class="center">
-                        This web application is build to Estimate daily and Total Runoff Depth and Volume
-                        Using SCS-CN method which was developed to calculate runoff generated in storms.
-                        In this application user can refer reference tab and depending on data given in 
-                        table can provide Curve Number Value and other parameter to calculate Runoff.
-                    </p>
-                </div>
+      <div
+        class="tab-pane fade"
+        id="reference"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        <div class="container my-3">
+          <div class="center-xy my-3">
+            <div class="my-3">
+              Antecedent Moisture Condition(AMC) for Determining value of Curve
+              Number
             </div>
+            <img
+              src="./assets/AMC.png"
+              class="img-fluid"
+              alt="Responsive image"
+            />
+          </div>
         </div>
+        <div class="container my-3">
+          <div class="center-xy my-3">
+            <div class="my-3">Curve Number [CN2] Values for Sugarcane</div>
+            <img
+              src="./assets/a.png"
+              class="img-fluid"
+              alt="Responsive image"
+            />
+          </div>
+        </div>
+        <div class="container my-3">
+          <div class="center-xy my-3">
+            <div class="my-3">
+              Curve Number [CN2] Values for Sugarcane and Urban Land Use
+            </div>
+            <img
+              src="./assets/b.png"
+              class="img-fluid"
+              alt="Responsive image"
+            />
+          </div>
+        </div>
+        <div class="container my-3">
+          <div class="center-xy my-3">
+            <div class="my-3">
+              Runoff Curve Number [CN2] for Hydrologic Soil Cover Complexes
+              [Under AMC-II Conditions]
+            </div>
+            <img
+              src="./assets/c.png"
+              class="img-fluid"
+              alt="Responsive image"
+            />
+          </div>
+        </div>
+      </div>
 
-        <div class="tab-pane fade" id="contributor" role="tabpanel" aria-labelledby="nav-profile-tab">
-            <div class="display-3 center my-3">Contributors</div>
-            <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Gaurav Chaurasia</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">181CV155</h6>
-                            <p class="card-text">National Institute of Technology Karnataka Surathkal</p>
-                            <a href="https://www.linkedin.com/in/gaurav-chaurasia/" class="card-link">
-                                <svg class = "linkedin" height="512pt" viewBox="0 0 512 512" width="512pt">
-                                    <path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0" />
-                                </svg>
-                            </a>
-                            <a href="https://github.com/gaurav-chaurasia/" class="card-link">
-                                <svg class = "github" height="512pt" viewBox="0 0 24 24" width="512pt">
-                                    <path d="m12 .5c-6.63 0-12 5.28-12 11.792 0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56 4.801-1.548 8.236-5.97 8.236-11.173 0-6.512-5.373-11.792-12-11.792z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Sachin Saroha</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">181CV137</h6>
-                            <p class="card-text">National Institute of Technology Karnataka Surathkal</p>
-                            <a href="www.linkedin.com/in/sachin-saroha" class="card-link">
-                                <svg class = "linkedin" height="512pt" viewBox="0 0 512 512" width="512pt">
-                                    <path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0" />
-                                </svg>
-                            </a>
-                            <a href="https://github.com/sachin-saroha/" class="card-link">
-                                <svg class = "github" height="512pt" viewBox="0 0 24 24" width="512pt">
-                                    <path d="m12 .5c-6.63 0-12 5.28-12 11.792 0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56 4.801-1.548 8.236-5.97 8.236-11.173 0-6.512-5.373-11.792-12-11.792z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Adarsh Kumar</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">181CV102</h6>
-                            <p class="card-text">
-                                National Institute of Technology Karnataka Surathkal
-                            </p>
-                            <a href="www.linkedin.com/in/adarsh-kumar1523" class="card-link">
-                                <svg class = "linkedin" height="512pt" viewBox="0 0 512 512" width="512pt">
-                                    <path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Anuj Singh</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">181CV106</h6>
-                            <p class="card-text">National Institute of Technology Karnataka Surathkal</p>
-                            <a href="www.linkedin.com/in/anuj-singh69" class="card-link">
-                                <svg class = "linkedin" height="512pt" viewBox="0 0 512 512" width="512pt">
-                                    <path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div
+        class="tab-pane fade"
+        id="about"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        <div class="display-3 center my-3">About</div>
+        <div class="alert alert-info my-3" role="alert">
+          <div class="center-xy my-3">
+            <!-- <h4 class="alert-heading">Estimate Runoff</h4> -->
+            <p class="center">
+              This web application is build to Estimate daily and Total Runoff
+              Depth and Volume Using SCS-CN method which was developed to
+              calculate runoff generated in storms. In this application user can
+              refer reference tab and depending on data given in table can
+              provide Curve Number Value and other parameter to calculate
+              Runoff.
+            </p>
+          </div>
         </div>
-        <div class="tab-pane fade" id="guied" role="tabpanel" aria-labelledby="nav-profile-tab">
-            <div class="display-3 center my-3">Guide</div>
-            <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <div class="card mt-0" style="width: 18rem;">
-                        <div class="card-body">
-                            <img class="card-img-top" src="./assets/LN_M.jpg" alt="Card image cap">
-                            <h5 class="card-title my-3">Lakshman Nandagiri</h5>
-                            <p class="card-text">National Institute of Technology Karnataka Surathkal</p>
-                            <a href="https://www.linkedin.com/in/lakshman-nandagiri-14265317b/" class="card-link">
-                                <svg class = "linkedin" height="512pt" viewBox="0 0 512 512" width="512pt">
-                                    <path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+      </div>
+
+      <div
+        class="tab-pane fade"
+        id="contributor"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        <div class="display-3 center my-3">Contributors</div>
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">Gaurav Chaurasia</h5>
+                <h6 class="card-subtitle mb-2 text-muted">181CV155</h6>
+                <p class="card-text">
+                  National Institute of Technology Karnataka Surathkal
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/gaurav-chaurasia/"
+                  class="card-link"
+                  target="_blank"
+                >
+                  <svg
+                    class="linkedin"
+                    height="512pt"
+                    viewBox="0 0 512 512"
+                    width="512pt"
+                  >
+                    <path
+                      d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://github.com/gaurav-chaurasia/"
+                  class="card-link"
+                  target="_blank"
+                >
+                  <svg
+                    class="github"
+                    height="512pt"
+                    viewBox="0 0 24 24"
+                    width="512pt"
+                  >
+                    <path
+                      d="m12 .5c-6.63 0-12 5.28-12 11.792 0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56 4.801-1.548 8.236-5.97 8.236-11.173 0-6.512-5.373-11.792-12-11.792z"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">Sachin Saroha</h5>
+                <h6 class="card-subtitle mb-2 text-muted">181CV137</h6>
+                <p class="card-text">
+                  National Institute of Technology Karnataka Surathkal
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/sachin-saroha/"
+                  class="card-link"
+                  target="_blank"
+                >
+                  <svg
+                    class="linkedin"
+                    height="512pt"
+                    viewBox="0 0 512 512"
+                    width="512pt"
+                  >
+                    <path
+                      d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://github.com/sachin-saroha/"
+                  target="_blank"
+                  class="card-link"
+                >
+                  <svg
+                    class="github"
+                    height="512pt"
+                    viewBox="0 0 24 24"
+                    width="512pt"
+                  >
+                    <path
+                      d="m12 .5c-6.63 0-12 5.28-12 11.792 0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56 4.801-1.548 8.236-5.97 8.236-11.173 0-6.512-5.373-11.792-12-11.792z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">Adarsh Kumar</h5>
+                <h6 class="card-subtitle mb-2 text-muted">181CV102</h6>
+                <p class="card-text">
+                  National Institute of Technology Karnataka Surathkal
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/adarsh-kumar1523"
+                  class="card-link"
+                  target="_blank"
+                >
+                  <svg
+                    class="linkedin"
+                    height="512pt"
+                    viewBox="0 0 512 512"
+                    width="512pt"
+                  >
+                    <path
+                      d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">Anuj Singh</h5>
+                <h6 class="card-subtitle mb-2 text-muted">181CV106</h6>
+                <p class="card-text">
+                  National Institute of Technology Karnataka Surathkal
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/anuj-singh69"
+                  class="card-link"
+                  target="_blank"
+                >
+                  <svg
+                    class="linkedin"
+                    height="512pt"
+                    viewBox="0 0 512 512"
+                    width="512pt"
+                  >
+                    <path
+                      d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="tab-pane fade"
+        id="guied"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        <div class="display-3 center my-3">Guide</div>
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <div class="card mt-0" style="width: 18rem">
+              <div class="card-body">
+                <img
+                  class="card-img-top"
+                  src="./assets/LN_M.jpg"
+                  alt="Card image cap"
+                />
+                <h5 class="card-title my-3">Lakshman Nandagiri</h5>
+                <p class="card-text">
+                  National Institute of Technology Karnataka Surathkal
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/lakshman-nandagiri-14265317b/"
+                  class="card-link"
+                  target="_blank"
+                >
+                  <svg
+                    class="linkedin"
+                    height="512pt"
+                    viewBox="0 0 512 512"
+                    width="512pt"
+                  >
+                    <path
+                      d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm-74.390625 387h-62.347656v-187.574219h62.347656zm-31.171875-213.1875h-.40625c-20.921875 0-34.453125-14.402344-34.453125-32.402344 0-18.40625 13.945313-32.410156 35.273437-32.410156 21.328126 0 34.453126 14.003906 34.859376 32.410156 0 18-13.53125 32.402344-35.273438 32.402344zm255.984375 213.1875h-62.339844v-100.347656c0-25.21875-9.027343-42.417969-31.585937-42.417969-17.222656 0-27.480469 11.601563-31.988282 22.800781-1.648437 4.007813-2.050781 9.609375-2.050781 15.214844v104.75h-62.34375s.816407-169.976562 0-187.574219h62.34375v26.558594c8.285157-12.78125 23.109375-30.960937 56.1875-30.960937 41.019531 0 71.777344 26.808593 71.777344 84.421874zm0 0"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="tab-pane fade"
+        id="result"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        <table class="table table-striped my-3 justify-content-center">
+          <tr>
+            <th>Rainfall</th>
+            <th>Runoff</th>
+          </tr>
+        </table>
+      </div>
     </div>
 
     <footer class="container">
-        <div class="center-footer">
-			<p>&copy; NITK 2020</p>
-        </div>
+      <div class="center-footer">
+        <p>&copy; NITK 2020</p>
+      </div>
     </footer>
     <!-- jQuery and JS bundle w/ Popper.js -->
-    <script 
-        src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
-        crossorigin="anonymous">
-    </script>
-    <script 
-        src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" 
-        crossorigin="anonymous">
-    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
     <script src="./js/app.js"></script>
-</body>
+  </body>
 </html>

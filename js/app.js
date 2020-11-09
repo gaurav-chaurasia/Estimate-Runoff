@@ -86,6 +86,7 @@ $('.calculate').on('click', (e) => {
     var CN1, CN2, CN3;
     var retain = 0;
     var runoff = new Array();
+    var rainfall = new Array();
     var total_runoff = 0;
     var runoff_volume = 0;
     if (AMC == 1) {
@@ -111,18 +112,19 @@ $('.calculate').on('click', (e) => {
     }
     console.log(retain);
     for (let i = 0; i < document.querySelectorAll('.rain-data').length; i++) {
-        let rainfall = parseFloat((document.querySelectorAll('.rain-data')[i].value), 10);
+        let temp_rainfall = parseFloat((document.querySelectorAll('.rain-data')[i].value), 10);
+        rainfall.push(temp_rainfall);
         let temp_runoff = 0;
-        if (rainfall <= lambda * retain) {
+        if (temp_rainfall <= lambda * retain) {
             temp_runoff = 0;
         } else {
-            temp_runoff = ((rainfall - (lambda * retain))**2)/(rainfall + (1 - lambda) * retain);
+            temp_runoff = ((temp_rainfall - (lambda * retain))**2)/(temp_rainfall + (1 - lambda) * retain);
         }
         runoff.push(temp_runoff);
         // console.log(temp_runoff);
     }
-    console.log(`a-d: ${area_data}`);
-    console.log(`a-u: ${area_unit}`);
+    // console.log(`a-d: ${area_data}`);
+    // console.log(`a-u: ${area_unit}`);
 
     for (let i = 0; i < runoff.length; i++) {
         total_runoff = total_runoff + runoff[i];
@@ -134,4 +136,13 @@ $('.calculate').on('click', (e) => {
         runoff_volume = parseFloat(((area_data * total_runoff) / 1000), 10);
     }
     console.log(`runoff_volume: ${runoff_volume}`);
+
+    for (let i = 0; i < runoff.length; i++) {
+        $("table").append(`<tr><td>${rainfall[i]}</td><td>${runoff[i].toFixed(2)}</td></tr>`);
+    }
+    $("#result").append(`<div class="dispaly-4 center">Total Runoff Depth: <strong>${total_runoff.toFixed(2)}(in mm)</strong></div>`);
+    $("#result").append(`<div class="dispaly-4 center">Total Runoff Volume: <strong>${runoff_volume.toFixed(2)}(in m^3)</strong></div>`);
+    $("form").parent().removeClass('active');
+    $("#result").addClass('active show');
+    $("table").css('display', 'flex');
 });
