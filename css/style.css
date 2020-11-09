@@ -121,3 +121,6 @@ button {
     display: flex;
     flex-direction: column;
 }
+table {
+    display: none;
+}
