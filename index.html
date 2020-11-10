@@ -15,11 +15,6 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
@@ -54,32 +49,47 @@
       </div>
     </div>
     <nav class="navbar navi navbar-expand-sm bg-light navbar-light">
-      <div class="container">
-        <ul class="navbar-nav"></ul>
-        <ul class="navbar-nav noob">
-          <li class="nav-item">
-            <a class="nav-link mx-3 active" data-toggle="tab" href="#form"
-              >home</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-3" data-toggle="tab" href="#reference"
-              >reference</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-3" data-toggle="tab" href="#guied">Guide</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-3" data-toggle="tab" href="#contributor"
-              >contributor</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-3" data-toggle="tab" href="#about">about</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav"></ul>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="container">
+          <ul class="navbar-nav"></ul>
+          <ul class="navbar-nav noob">
+            <li class="nav-item">
+              <a class="nav-link mx-3 active" data-toggle="tab" href="#form"
+                >home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-3" data-toggle="tab" href="#reference"
+                >reference</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-3" data-toggle="tab" href="#guied"
+                >mentor</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-3" data-toggle="tab" href="#contributor"
+                >contributors</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-3" data-toggle="tab" href="#about">about</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav"></ul>
+        </div>
       </div>
     </nav>
 
@@ -136,11 +146,32 @@
             <div class="input_rain_wrap">
               <label for="username">Daily Rainfall Data (mm)</label>
               <button class="add_rain_button my-3">
-                <i class="ion-ios-plus-outline"></i>
+                <svg
+                  version="1.1"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 496 496"
+                  style="enable-background: new 0 0 496 496"
+                  xml:space="preserve"
+                >
+                  <g>
+                    <path
+                      d="M248,0C111.033,0,0,111.033,0,248c0.154,136.903,111.097,247.846,248,248c136.967,0,248-111.033,248-248S384.967,0,248,0
+            z M248,480C119.87,480,16,376.13,16,248C16.146,119.93,119.93,16.146,248,16c128.13,0,232,103.87,232,232S376.13,480,248,480z"
+                    />
+                    <path
+                      d="M400,240H256V96c0-4.418-3.582-8-8-8s-8,3.582-8,8v144H96c-4.418,0-8,3.582-8,8s3.582,8,8,8h144v144c0,4.418,3.582,8,8,8
+            s8-3.582,8-8V256h144c4.418,0,8-3.582,8-8S404.418,240,400,240z"
+                    />
+                  </g>
+                </svg>
               </button>
               <div>
                 <input
-                  class="form-control rain-data mb-3"
+                  class="form-control rain-data my-3"
                   min="0"
                   placeholder="day-1"
                   type="number"
@@ -156,7 +187,28 @@
             <div class="input_cn_wrap">
               <label for="CN">Curve Number Data</label>
               <button class="add_cn_button my-3">
-                <i class="ion-ios-plus-outline"></i>
+                <svg
+                  version="1.1"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 496 496"
+                  style="enable-background: new 0 0 496 496"
+                  xml:space="preserve"
+                >
+                  <g>
+                    <path
+                      d="M248,0C111.033,0,0,111.033,0,248c0.154,136.903,111.097,247.846,248,248c136.967,0,248-111.033,248-248S384.967,0,248,0
+                      z M248,480C119.87,480,16,376.13,16,248C16.146,119.93,119.93,16.146,248,16c128.13,0,232,103.87,232,232S376.13,480,248,480z"
+                    />
+                    <path
+                      d="M400,240H256V96c0-4.418-3.582-8-8-8s-8,3.582-8,8v144H96c-4.418,0-8,3.582-8,8s3.582,8,8,8h144v144c0,4.418,3.582,8,8,8
+                      s8-3.582,8-8V256h144c4.418,0,8-3.582,8-8S404.418,240,400,240z"
+                    />
+                  </g>
+                </svg>
               </button>
               <div class="row">
                 <div class="col-6">
@@ -421,7 +473,7 @@
         role="tabpanel"
         aria-labelledby="nav-profile-tab"
       >
-        <div class="display-3 center my-3">Guide</div>
+        <div class="display-3 center my-3">mentor</div>
         <div class="row justify-content-center">
           <div class="col-md-4">
             <div class="card mt-0" style="width: 18rem">
@@ -431,9 +483,13 @@
                   src="./assets/LN_M.jpg"
                   alt="Card image cap"
                 />
-                <h5 class="card-title my-3">Lakshman Nandagiri</h5>
+                <h5 class="card-title my-3">Prof. Lakshman Nandagiri</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  lnand@rocketmail.com
+                </h6>
                 <p class="card-text">
-                  National Institute of Technology Karnataka Surathkal
+                  Professor HAG at National Institute of Technology Karnataka
+                  Surathkal
                 </p>
                 <a
                   href="https://www.linkedin.com/in/lakshman-nandagiri-14265317b/"

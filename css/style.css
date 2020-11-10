@@ -21,9 +21,8 @@
 }
 
 .logo {
-    width: 200px;
     margin: 1px auto;
-    padding: 8px;
+    padding: 8px 20px !important;
     border-radius: 30px;
     color: #5d6169;
     text-shadow: none;
@@ -58,13 +57,6 @@
     height: 50px;
 }
 
-.rain {
-    position: absolute;
-    font-size: 32px;
-    top: -58px;
-    /* right: -691px; */
-    left: 671px;
-}
 .card {
     margin: 0 auto;
     margin-top: 40px;
@@ -83,11 +75,20 @@ svg:hover {
 }
 .cn {
     position: absolute;
-    font-size: 32px;
-    top: -5px;
-    /* right: -10px; */
+    top: 4px;
     left: -10px;
-    height: 38px;
+    fill: thistle;
+}
+.rain {
+    position: absolute;
+    top: -50px;
+    left: 671px;
+    fill: thistle;
+}
+
+.cn:hover, .rain:hover {
+    fill: rgb(194, 61, 37);
+    transition: 0.2s ease-out;
 }
 .form-group {
     position: relative;
@@ -104,11 +105,18 @@ button {
 
 .add_cn_button, .add_rain_button {
     position: absolute;
-    top: -30px;
+    top: -20px;
     right: 0;
-    font-size: 32px;
-    color: #5cb85c;
-    font-weight: bold;
+}
+
+.add_cn_button svg, 
+.add_rain_button svg {
+    fill: #5cb85c;
+}
+
+.add_cn_button svg:hover, 
+.add_rain_button svg:hover {
+    fill: #3c773c;
 }
 
 .center-footer {
@@ -123,4 +131,18 @@ button {
 }
 table {
     display: none;
+}
+
+@media (max-width: 480px) {
+    .form {
+        width: 100%;
+    }
+    .rain {
+        top: -51px;
+        left: 240px;
+    }
+    .cn {
+        top: 3px;
+        left: -50px;
+    }
 }
