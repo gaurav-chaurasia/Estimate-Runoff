@@ -120,14 +120,14 @@ $('.calculate').on('click', (e) => {
         } else {
             temp_runoff = ((temp_rainfall - (lambda * retain))**2)/(temp_rainfall + (1 - lambda) * retain);
         }
-        runoff.push(temp_runoff.toFixed(2));
+        runoff.push(temp_runoff);
         // console.log(temp_runoff);
     }
     // console.log(`a-d: ${area_data}`);
     // console.log(`a-u: ${area_unit}`);
 
     for (let i = 0; i < runoff.length; i++) {
-        total_runoff = total_runoff + runoff[i].toFixed(2);
+        total_runoff = total_runoff + runoff[i];
     }
     console.log(`total_runoff: ${total_runoff}`);
     if (area_unit == 1) {
