@@ -74,7 +74,7 @@ $('.calculate').on('click', (e) => {
         avgCN += b * c;
         // console.log(document.querySelectorAll('.cn-p')[i].value);
     }
-    avgCN =parseFloat((avgCN / a),10);
+    avgCN =parseFloat((avgCN / a),10).toFixed(2);
     // console.log(`a = ${a}`);
     // console.log(`avgCN = ${avgCN}`);
 
@@ -93,22 +93,22 @@ $('.calculate').on('click', (e) => {
         if (CNType == 1) {
             CN1 = avgCN;
         } else {
-            CN1 = (avgCN / (2.281 - (0.01281 * avgCN)));
+            CN1 = (avgCN / (2.281 - (0.01281 * avgCN))).toFixed(2);
         }
-        retain = parseFloat((254 * ((100/CN1) - 1)), 10);
+        retain = parseFloat((254 * ((100/CN1) - 1)), 10).toFixed(2);
     } else if (AMC == 2) {
         CN2 = avgCN;
-        retain = parseFloat((254 * ((100/CN2) - 1)), 10);
+        retain = parseFloat((254 * ((100/CN2) - 1)), 10).toFixed(2);
         // retain = 254 * ((100/CN2) - 1);
         // console.log(`CN2: ${CN2}`);
     } else if(AMC == 3) {
         if (CNType == 3) {
             CN3 = avgCN;
         } else {
-            CN3 = (avgCN / (0.427 + (0.00573 * avgCN)));
+            CN3 = (avgCN / (0.427 + (0.00573 * avgCN))).toFixed(2);
             // retain = 254 * ((100/CN3) - 1);
         }
-        retain = parseFloat((254 * ((100/CN3) - 1)), 10);
+        retain = parseFloat((254 * ((100/CN3) - 1)), 10).toFixed(2);
     }
     console.log(retain);
     for (let i = 0; i < document.querySelectorAll('.rain-data').length; i++) {
@@ -131,9 +131,9 @@ $('.calculate').on('click', (e) => {
     }
     console.log(`total_runoff: ${total_runoff}`);
     if (area_unit == 1) {
-        runoff_volume = parseFloat((area_data * total_runoff * 10), 10);
+        runoff_volume = parseFloat((area_data * total_runoff * 10), 10).toFixed(2);
     } else {
-        runoff_volume = parseFloat(((area_data * total_runoff) / 1000), 10);
+        runoff_volume = parseFloat(((area_data * total_runoff) / 1000), 10).toFixed(2);
     }
     console.log(`runoff_volume: ${runoff_volume}`);
 
@@ -141,7 +141,7 @@ $('.calculate').on('click', (e) => {
         $("table").append(`<tr><td>${rainfall[i]}</td><td>${runoff[i].toFixed(2)}</td></tr>`);
     }
     $("#result").append(`<div class="dispaly-4 center">Total Runoff Depth: <strong>${total_runoff.toFixed(2)}(in mm)</strong></div>`);
-    $("#result").append(`<div class="dispaly-4 center">Total Runoff Volume: <strong>${runoff_volume.toFixed(2)}(in m^3)</strong></div>`);
+    $("#result").append(`<div class="dispaly-4 center">Total Runoff Volume: <strong>${runoff_volume}(in m^3)</strong></div>`);
     $("form").parent().removeClass('active');
     $("#result").addClass('active show');
     $("table").css('display', 'flex');
