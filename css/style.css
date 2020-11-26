@@ -149,3 +149,22 @@ table {
         font-size: 2.5rem;   
     }
 }
+
+#myTab {
+    background: none;
+}
+
+#myTab li {
+    width: 50%; 
+}
+
+#myTab li * {
+    color: #9c9c9c;
+}
+
+#myTab li .active {
+    color: #000000;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.08);
+    border: none;
+    transition: 0.25s;
+}
