@@ -77,16 +77,37 @@ svg:hover {
     position: absolute;
     top: 4px;
     left: -10px;
-    fill: thistle;
+    fill: rgb(197, 197, 197);
+}
+.st_wrap {
+    width: 100% !important;
+    position: relative;
+}
+.remove_st_svg {
+    position: absolute;
+    top: -40px;
+    left: 635px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    fill: rgb(197, 197, 197);
 }
 .rain {
     position: absolute;
     top: -50px;
     left: 671px;
-    fill: thistle;
+    fill: rgb(197, 197, 197);
+}
+.remove_land_use_svg {
+    position: absolute;
+    top: 3px;
+    left: -12px;
+    fill: rgb(197, 197, 197);
 }
 
-.cn:hover, .rain:hover {
+.cn:hover, 
+.rain:hover, 
+.remove_st_svg:hover,
+.remove_land_use_svg:hover {
     fill: rgb(194, 61, 37);
     transition: 0.2s ease-out;
 }
@@ -103,19 +124,31 @@ button {
     font-weight: 300;
 }
 
-.add_cn_button, .add_rain_button {
+.add_cn_button, 
+.add_rain_button, 
+.add_soil_type_button,
+.add_land_use_button {
     position: absolute;
     top: -20px;
     right: 0;
 }
 
+.add_land_use_button {
+    top: 18px;
+    right: -20px;
+}
+
 .add_cn_button svg, 
-.add_rain_button svg {
+.add_rain_button svg, 
+.add_soil_type_button svg,
+.add_land_use_button svg {
     fill: #5cb85c;
 }
 
 .add_cn_button svg:hover, 
-.add_rain_button svg:hover {
+.add_rain_button svg:hover,
+.add_soil_type_button svg:hover, 
+.add_land_use_button svg:hover {
     fill: #3c773c;
 }
 
@@ -152,6 +185,12 @@ table {
 
 #myTab {
     background: none;
+    border: none !important;
+}
+
+#myTab:hover {
+    background: none;
+    border: none !important;
 }
 
 #myTab li {
@@ -159,7 +198,14 @@ table {
 }
 
 #myTab li * {
+    border: none !important;
     color: #9c9c9c;
+}
+
+#myTab li *:hover {
+    transition: 0.2s;
+    border: none !important;
+    color: #000000;
 }
 
 #myTab li .active {
